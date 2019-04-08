@@ -17,9 +17,10 @@ class Board extends Component {
         });
       }
       else {
-        //Transmit previousSpace and name
-        //Render the board with no spaces selected
-        console.log(this.state.previousSpace);
+        this.props.move({
+            "spaceFrom": this.state.previousSpace,
+            "spaceTo": name
+        });
         this.setState({
           previousSpace : null
         });
@@ -37,15 +38,15 @@ class Board extends Component {
 
 
 function buildBoard (onClick) {
-  const board = [];
+  const board = [];//An array of Components
   for (let i = 0; i < 64; i++) {
-    let numberIndex = 7 -Math.floor(i / 8);
-    let letterIndex = i % 8;
+    let numberIndex = 7 -Math.floor(i / 8); //To order the numbers right to left,subtract by max index.
+    let letterIndex = i % 8; //Have the letters based upon the remainder
     board.push(<Space
-                  key={i}
+                  key={i} //Separate key values are recommended by React. I don't need this though
                   spaceName={letters[letterIndex] + numbers[numberIndex]}
-                  index={i + numberIndex}
-                  handleClick = {onClick}
+                  index={i + numberIndex} // rotate the color each row
+                  handleClick = {onClick} // Pass the constraints down.
                 />);
   }
   return board;
@@ -63,7 +64,6 @@ function Space(props) {
       tabIndex={props.index}
       onClick={props.handleClick(props.spaceName)}
     >
-
     </div>
   );
 }

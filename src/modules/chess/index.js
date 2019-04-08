@@ -4,7 +4,9 @@ import Board from '../../components/board';
 class Chess extends Component {
   render() {
     return (
-      <Board/>
+      <Board
+        move = {this.props.move}
+      />
     );
   }
 }
