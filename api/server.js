@@ -3,7 +3,6 @@ const fs = require('fs');
 const jsonfile = require('jsonfile');
 const httpStatus = require('http-status-codes');
 const cors = require('cors');
-require('log-timestamp');
 
 const app = express();
 

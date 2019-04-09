@@ -19,7 +19,7 @@ communication.makeMove = (move) => {
   return callApi(options);
 };
 
-communication.readBoard =  (prevBoard) => {
+communication.readBoard = () => {
   const options = {
     method: 'GET',
     headers: {
