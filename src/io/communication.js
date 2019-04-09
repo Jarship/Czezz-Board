@@ -8,7 +8,7 @@ communication.makeMove = (move) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    mode: "no-cors"
+    mode: "cors"
   };
   if (move && typeof move === 'object' && Object.keys(move).length > 0) {
     options.body = JSON.stringify(move);
