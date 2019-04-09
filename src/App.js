@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <Chess
         move={communication.makeMove}
+        updateBoard={communication.readBoard}
       />
     );
   }

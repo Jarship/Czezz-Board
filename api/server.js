@@ -3,11 +3,13 @@ const fs = require('fs');
 const jsonfile = require('jsonfile');
 const httpStatus = require('http-status-codes');
 const cors = require('cors');
+require('log-timestamp');
 
 const app = express();
 
 app.use(cors());
 app.use(require('body-parser').json());
+
 
 app.get('/', (request, response) => {
   const file = './board.json';

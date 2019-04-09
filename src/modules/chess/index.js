@@ -6,6 +6,7 @@ class Chess extends Component {
     return (
       <Board
         move = {this.props.move}
+        updateBoard = {this.props.updateBoard}
       />
     );
   }
